@@ -46,7 +46,7 @@ am1 = am.AM_strategy(webapp=app)
 @app.route('/')
 def index():
     # 创建蜡烛图
-    data1 = am1.dfday.head()
+    data1 = am1.dfday
     trace = go.Candlestick(x=data1.index, #.astype(str),
                            open=data1[am1.collist[0]],
                            high=data1[am1.collist[1]],
@@ -67,7 +67,7 @@ def index():
 # ------------ bar数据更新  ------------
 @app.route('/refresh_data') # TODO 这个有问题，需要加入 stdt 和 endt！
 def refresh_data():
-    dfdata = am1.dfday[am1.collist].head().reset_index()
+    dfdata = am1.dfday[am1.collist].reset_index()
     #dfdata['index'] = dfdata['index'].astype(str)
     senddata = dfdata.to_dict()
     #print(senddata)

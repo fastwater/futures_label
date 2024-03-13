@@ -12,8 +12,6 @@ import pickle # 用于存储
 class AM_strategy():
     # 只存储策略数据，不存储行情数据，行情数据从 trade_engine 中引用！
     # 行情数据就是一个 合约相关的 DataFrame, 有基础 bar 信息。行情数据最好有 数字 index 数据，方便计算距离，趋势线等！
-    # TODO 不同级别的趋势线，因为休市时间的原因，突破点位是不同的！
-    # TODO: 行情具体放在哪里再说
     def __init__(self, webapp):
 
         self.webapp = webapp  # 网页接口 --- 引发网页显示变化 --- 读取网页post 更新 策略数据
